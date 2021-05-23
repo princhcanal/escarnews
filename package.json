@@ -1,0 +1,22 @@
+{
+  "name": "theory-theory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "npm run start:dev --prefix server",
+    "web": "npm run start --prefix web",
+    "start": "concurrently \"npm run server\" \"npm run web\"",
+    "heroku:postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix web && npm run build --prefix-client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-princhcanal:princhcanal/theory-theory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.1.0"
+  }
+}

@@ -1,0 +1,17 @@
+.Feed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.createPost {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 35rem;
+}

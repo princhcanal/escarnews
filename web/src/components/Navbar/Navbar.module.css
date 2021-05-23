@@ -1,0 +1,27 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 70rem;
+  margin: auto;
+}
+
+.logo {
+  padding-left: 1rem;
+}
+
+.links {
+  padding-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links .button {
+  margin: 0 0.5rem;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+}

@@ -1,0 +1,8 @@
+button {
+  cursor: pointer;
+}
+
+a:visited,
+a:link {
+  color: inherit;
+}
