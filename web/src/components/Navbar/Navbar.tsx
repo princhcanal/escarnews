@@ -93,6 +93,22 @@ export const Navbar = () => {
           <p className={styles.linkText}>Go to LAIR</p>
         </a>
 
+        <a
+          href='https://outlook.office.com/mail/inbox'
+          target='_blank'
+          rel='noreferrer'
+          className={styles.link}
+        >
+          <div className={styles.linkIcon}>
+            <FontAwesomeIcon
+              icon={faLink}
+              size={iconSize}
+              className={styles.linkIcon}
+            />
+          </div>
+          <p className={styles.linkText}>MS Outlook</p>
+        </a>
+
         <button
           className={[styles.button, styles.logout].join(' ')}
           onClick={handleLogout}

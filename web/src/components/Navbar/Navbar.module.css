@@ -8,7 +8,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  border: 1px solid black;
   height: 100%;
 }
 
@@ -57,7 +56,8 @@
 
 .linkText {
   font-size: 1rem;
-  flex: 1;
+  font-weight: bold;
+  flex: 2;
 }
 
 .linkIcon {
