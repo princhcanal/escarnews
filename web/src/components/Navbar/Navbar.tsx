@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
+  faLink,
   faSignOutAlt,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +18,7 @@ import { isMobile } from '../../util/isMobile';
 
 export const Navbar = () => {
   const dispatch = useDispatch();
+  const iconSize = '2x';
 
   const [logoutDisabled, setLogoutDisabled] = useState<boolean>(false);
 
@@ -31,30 +33,81 @@ export const Navbar = () => {
     <div className={styles.Navbar}>
       <div className={styles.logo}>
         <h1>
-          <Link to='/'>EscarNews</Link>
+          <Link to='/' className={styles.link}>
+            EscarNews
+          </Link>
         </h1>
       </div>
       <div className={styles.links}>
-        <button data-tip='Go to feed' className={styles.button}>
-          <Link to='/'>
-            <FontAwesomeIcon icon={faHome} size='2x' />
-          </Link>
-        </button>
-        <button data-tip='Go to profile page' className={styles.button}>
-          <Link to='/profile'>
-            <FontAwesomeIcon icon={faUser} size='2x' />
-          </Link>
-        </button>
+        <Link to='/' className={styles.link}>
+          <div className={styles.linkIcon}>
+            <FontAwesomeIcon
+              icon={faHome}
+              size={iconSize}
+              className={styles.linkIcon}
+            />
+          </div>
+          <p className={styles.linkText}>Home</p>
+        </Link>
+
+        <Link to='/profile' className={styles.link}>
+          <div className={styles.linkIcon}>
+            <FontAwesomeIcon
+              icon={faUser}
+              size={iconSize}
+              className={styles.linkIcon}
+            />
+          </div>
+          <p className={styles.linkText}>Profile</p>
+        </Link>
+
+        <a
+          href='https://cituweb.pinnacle.com.ph/aims/students/'
+          target='_blank'
+          rel='noreferrer'
+          className={styles.link}
+        >
+          <div className={styles.linkIcon}>
+            <FontAwesomeIcon
+              icon={faLink}
+              size={iconSize}
+              className={styles.linkIcon}
+            />
+          </div>
+          <p className={styles.linkText}>Go to AIMS</p>
+        </a>
+
+        <a
+          href='https://lair.education/'
+          target='_blank'
+          rel='noreferrer'
+          className={styles.link}
+        >
+          <div className={styles.linkIcon}>
+            <FontAwesomeIcon
+              icon={faLink}
+              size={iconSize}
+              className={styles.linkIcon}
+            />
+          </div>
+          <p className={styles.linkText}>Go to LAIR</p>
+        </a>
+
         <button
+          className={[styles.button, styles.logout].join(' ')}
           onClick={handleLogout}
           disabled={logoutDisabled}
-          data-tip='Logout'
-          className={styles.button}
         >
-          <FontAwesomeIcon icon={faSignOutAlt} size='2x' />
+          <div className={styles.linkIcon}>
+            <FontAwesomeIcon
+              icon={faSignOutAlt}
+              size={iconSize}
+              className={styles.linkIcon}
+            />
+          </div>
+          <p className={styles.linkText}>Logout</p>
         </button>
       </div>
-      <ReactTooltip disable={isMobile} />
     </div>
   );
 };

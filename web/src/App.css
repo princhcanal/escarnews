@@ -1,3 +1,13 @@
+:root {
+  --gold: #ffb94f;
+  --maroon: #8a0102;
+  --white: #fff;
+}
+
+:hover:disabled {
+  cursor: not-allowed;
+}
+
 button {
   cursor: pointer;
 }
@@ -5,4 +15,23 @@ button {
 a:visited,
 a:link {
   color: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.layout {
+  display: flex;
+}
+
+.navbar {
+  flex-basis: 30%;
+  height: 100vh;
+  position: relative;
+  background-color: var(--gold);
+}
+
+.content {
+  flex-basis: 70%;
 }

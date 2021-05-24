@@ -14,9 +14,14 @@ export const Feed = () => {
 
   useEffect(() => {
     const getPosts = async () => {
-      const posts = (await axios.get<PostType[]>('/posts')).data;
-      setPosts(posts);
-      setFetchedPosts(true);
+      try {
+        const posts = (await axios.get<PostType[]>('/posts')).data;
+        setPosts(posts);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setFetchedPosts(true);
+      }
     };
     getPosts();
   }, []);

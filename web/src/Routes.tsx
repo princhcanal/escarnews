@@ -22,13 +22,17 @@ export const Routes = () => {
   );
 
   const authRoutes = (
-    <div>
-      <Navbar />
-      <Switch>
-        <Route path='/profile' component={Profile} />
-        <Route path='/' component={Feed} />
-        <Redirect to='/' />
-      </Switch>
+    <div className='layout'>
+      <div className='navbar'>
+        <Navbar />
+      </div>
+      <main className='content'>
+        <Switch>
+          <Route path='/profile' component={Profile} />
+          <Route path='/' component={Feed} />
+          <Redirect to='/' />
+        </Switch>
+      </main>
     </div>
   );
 

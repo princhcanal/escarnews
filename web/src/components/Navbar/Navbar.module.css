@@ -1,27 +1,79 @@
 .Navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 70rem;
+  flex-direction: column;
   margin: auto;
+  width: 30%;
+  max-width: 70rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1px solid black;
+  height: 100%;
 }
 
 .logo {
   padding-left: 1rem;
+  text-transform: uppercase;
+  color: var(--white);
 }
 
 .links {
   padding-right: 1rem;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  color: var(--maroon);
+  width: 40%;
 }
 
-.links .button {
-  margin: 0 0.5rem;
+.links .link {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease-out;
+  margin: 0.5rem 0;
+}
+
+.links .link:hover,
+.logout:hover {
+  color: var(--white);
 }
 
 .button {
   background-color: transparent;
   border: none;
+}
+
+.button:disabled,
+.button:hover:disabled {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.linkText {
+  font-size: 1rem;
+  flex: 1;
+}
+
+.linkIcon {
+  flex: 1;
+}
+
+.logout {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
+  transition: all 0.2s ease-out;
+}
+
+.logout .linkIcon {
+  margin-right: 0.5rem;
 }
