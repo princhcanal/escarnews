@@ -14,17 +14,24 @@ export const Routes = () => {
   );
 
   const noAuthRoutes = (
-    <Switch>
-      <Route path='/register' component={Register} />
-      <Route path='/login' component={Login} />
-      <Redirect to='/login' />
-    </Switch>
+    <div className='layout'>
+      <div className='navbar'>
+        <Navbar authorized={isLoggedIn} />
+      </div>
+      <div className='content'>
+        <Switch>
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={Login} />
+          <Redirect to='/login' />
+        </Switch>
+      </div>
+    </div>
   );
 
   const authRoutes = (
     <div className='layout'>
       <div className='navbar'>
-        <Navbar />
+        <Navbar authorized={isLoggedIn} />
       </div>
       <main className='content'>
         <Switch>

@@ -40,7 +40,7 @@ export const LoginForm = () => {
 
   return (
     <div className={styles.LoginForm}>
-      <h1>Login</h1>
+      <h1 className={styles.formTitle}>Login</h1>
       <div>
         <Formik
           initialValues={initialValues}
@@ -48,15 +48,26 @@ export const LoginForm = () => {
           onSubmit={onSubmit}
         >
           <Form noValidate>
-            <Input type='email' name='email' id='email' label='Email' />
+            <Input
+              type='email'
+              name='email'
+              id='email'
+              label='Email'
+              placeholder='Enter Email'
+            />
             <Input
               type='password'
               name='password'
               id='password'
               label='Password'
+              placeholder='Enter Password'
             />
             <div>
-              <button type='submit' disabled={submitDisabled}>
+              <button
+                type='submit'
+                disabled={submitDisabled}
+                className={styles.submit}
+              >
                 {submitDisabled ? 'Logging in...' : 'Log in'}
               </button>
             </div>

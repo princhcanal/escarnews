@@ -1,2 +1,17 @@
 .Register {
 }
+
+.redirect {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.redirectText {
+  margin-right: 0.5rem;
+}
+
+a.redirectLink {
+  color: var(--maroon);
+}

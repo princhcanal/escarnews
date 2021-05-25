@@ -1,2 +1,17 @@
 .LoginForm {
+  padding: 0 2rem;
+}
+
+.formTitle {
+  color: var(--maroon);
+}
+
+.submit {
+  width: 100%;
+  background-color: var(--gold);
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  font-weight: bold;
+  margin-top: 1rem;
 }

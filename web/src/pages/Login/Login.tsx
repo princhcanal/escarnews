@@ -8,8 +8,11 @@ export const Login = () => {
   return (
     <div className={styles.Login}>
       <LoginForm />
-      <p>
-        Don't have an account? <Link to='/register'>Register</Link>{' '}
+      <p className={styles.redirect}>
+        <p className={styles.redirectText}>Don't have an account?</p>
+        <Link to='/register' className={styles.redirectLink}>
+          Register
+        </Link>{' '}
       </p>
     </div>
   );

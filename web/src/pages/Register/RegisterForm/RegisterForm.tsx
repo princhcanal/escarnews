@@ -17,12 +17,16 @@ export const RegisterForm = () => {
     email: '',
     username: '',
     password: '',
+    confirm: '',
   };
 
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid email').required('Required'),
     username: Yup.string().required('Required'),
     password: Yup.string().required('Required'),
+    confirm: Yup.string()
+      .oneOf([Yup.ref('password')], 'Passwords must match')
+      .required('Required'),
   });
 
   const onSubmit = async (values: any) => {
@@ -38,7 +42,7 @@ export const RegisterForm = () => {
 
   return (
     <div className={styles.RegisterForm}>
-      <h1>Register</h1>
+      <h1 className={styles.formTitle}>Register</h1>
       <div>
         <Formik
           initialValues={initialValues}
@@ -46,15 +50,39 @@ export const RegisterForm = () => {
           onSubmit={onSubmit}
         >
           <Form noValidate>
-            <Input type='email' name='email' id='email' label='Email' />
-            <Input type='text' name='username' id='username' label='Username' />
+            <Input
+              type='email'
+              name='email'
+              id='email'
+              label='Email'
+              placeholder='Enter Email'
+            />
+            <Input
+              type='text'
+              name='username'
+              id='username'
+              label='Username'
+              placeholder='Enter Username'
+            />
             <Input
               type='password'
               name='password'
               id='password'
               label='Password'
+              placeholder='Enter Password'
             />
-            <button type='submit' disabled={submitDisabled}>
+            <Input
+              type='password'
+              name='confirm'
+              id='confirm'
+              label='Confirm Password'
+              placeholder='Repeat Password'
+            />
+            <button
+              type='submit'
+              disabled={submitDisabled}
+              className={styles.submit}
+            >
               {submitDisabled ? 'Registering...' : 'Register'}
             </button>
           </Form>

@@ -8,8 +8,12 @@ export const Register = () => {
   return (
     <div className={styles.Register}>
       <RegisterForm />
-      <p>
-        Already have an account? <Link to='/login'>Login</Link>
+      <p className={styles.redirect}>
+        <p className={styles.redirectText}>Already have an account?</p>
+
+        <Link to='/login' className={styles.redirectLink}>
+          Login
+        </Link>
       </p>
     </div>
   );
