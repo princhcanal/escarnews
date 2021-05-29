@@ -9,6 +9,7 @@ export declare class PostsService {
     constructor(postsRepository: Repository<Post>);
     getAllPosts(): Promise<Post[]>;
     getPostsByUserId(userId: number): Promise<Post[]>;
+    getPostsByUsername(username: string): Promise<Post[]>;
     getPostById(id: number): Promise<Post>;
     createPost(post: CreatePostDTO, author: User, file: Express.Multer.File): Promise<Post>;
     updatePost(id: number, post: UpdatePostDTO): Promise<Post>;

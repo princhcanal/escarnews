@@ -1,31 +1,30 @@
 import { useEffect, useState } from 'react';
 import styles from './Profile.module.css';
 
-import { useSelector } from 'react-redux';
-
 import { axiosInstance as axios } from '../../axios';
-import { RootState } from '../../store';
 import { Post as PostType } from '../../types/post';
 import { Post } from '../../components/Post/Post';
+import { useParams } from 'react-router';
 
 export const Profile = () => {
-  const { username, userId } = useSelector<
-    RootState,
-    { username: string; userId: string }
-  >((state) => ({ username: state.auth.username, userId: state.auth.userId }));
-
   const [posts, setPosts] = useState<PostType[]>([]);
   const [fetchedPosts, setFetchedPosts] = useState<boolean>(false);
   const [refreshPosts, setRefreshPosts] = useState<boolean>(false);
 
+  const { username } = useParams<{ username: string }>();
+
   useEffect(() => {
     const getUserPosts = async () => {
-      const posts = (await axios.get<PostType[]>(`/posts/user/${userId}`)).data;
+      setFetchedPosts(false);
+      setPosts([]);
+
+      const posts = (await axios.get<PostType[]>(`/posts/username/${username}`))
+        .data;
       setPosts(posts);
       setFetchedPosts(true);
     };
     getUserPosts();
-  }, [userId, refreshPosts]);
+  }, [username, refreshPosts]);
 
   const handleRefreshPosts = () => {
     setRefreshPosts((prev) => !prev);

@@ -37,7 +37,7 @@ export const Routes = () => {
       </div>
       <main className='content'>
         <Switch>
-          <Route path='/profile' component={Profile} />
+          <Route path='/profile/:username' component={Profile} />
           <Route path='/' component={Feed} />
           <Redirect to='/' />
         </Switch>

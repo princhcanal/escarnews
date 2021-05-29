@@ -34,6 +34,9 @@ let PostsController = class PostsController {
     async getPostsByUserId(userId) {
         return await this.postsService.getPostsByUserId(Number(userId));
     }
+    async getPostsByUsername(username) {
+        return await this.postsService.getPostsByUsername(username);
+    }
     async createPost(post, req, image) {
         return await this.postsService.createPost(post, req.user, image);
     }
@@ -58,13 +61,21 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PostsController.prototype, "getPostById", null);
 __decorate([
-    common_1.Get('/user/:id'),
+    common_1.Get('/userId/:id'),
     common_1.UseGuards(jwtAuthentication_guard_1.JwtAuthenticationGuard),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], PostsController.prototype, "getPostsByUserId", null);
+__decorate([
+    common_1.Get('/username/:username'),
+    common_1.UseGuards(jwtAuthentication_guard_1.JwtAuthenticationGuard),
+    __param(0, common_1.Param('username')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], PostsController.prototype, "getPostsByUsername", null);
 __decorate([
     common_1.Post(),
     common_1.UseGuards(jwtAuthentication_guard_1.JwtAuthenticationGuard),

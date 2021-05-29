@@ -3697,8 +3697,8 @@
         "affectsGlobalScope": false
       },
       "../src/posts/posts.service.ts": {
-        "version": "7cb344aba5cefc6d119aa4e6b7d115b8e56afdf1ec3d80801cbfda6f460f5425",
-        "signature": "58af8db01d09887d58eb69cb2d4edd8a9b21f50de5628eacee5b101445af14b8",
+        "version": "67fe579399223b6e8fc298a37666e633890af03aeb911418879b02f03eec057c",
+        "signature": "1180f326ca8e2aba0733161c23f7093cfd7aba9d552d847beca9e053d110e247",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/passport/dist/abstract.strategy.d.ts": {
@@ -4127,8 +4127,8 @@
         "affectsGlobalScope": false
       },
       "../src/posts/posts.controller.ts": {
-        "version": "af7726624c76a2b2709e95e0e16c2c2bec1fc1576d69020ca155827bd4f0ce10",
-        "signature": "0cd9b742e3d4635a04572077a5c7bedaef15876fb529407fcee25efeacc23488",
+        "version": "e84c055b1dcb87df561e4d7e4dae8753a7a804bac79e47e3612109845a056c2b",
+        "signature": "b51eab308b5f64b2e04e9d1d9b0333805afa126fd20d1f02373f608d65f8337a",
         "affectsGlobalScope": false
       },
       "../src/users/dto/createuser.dto.ts": {

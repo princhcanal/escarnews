@@ -37,6 +37,13 @@ let PostsService = class PostsService {
             },
         });
     }
+    async getPostsByUsername(username) {
+        return await this.postsRepository
+            .createQueryBuilder('posts')
+            .innerJoinAndSelect('posts.author', 'author')
+            .where('author.username = :username', { username: username })
+            .getMany();
+    }
     async getPostById(id) {
         const post = await this.postsRepository.findOne(id, {
             relations: ['author'],

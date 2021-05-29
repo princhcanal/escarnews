@@ -5,6 +5,9 @@ import { useState } from 'react';
 import { Modal } from '../Modal/Modal';
 import { EditPostForm } from './EditPostForm/EditPostForm';
 import { Post as PostType } from '../../types/post';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { Link } from 'react-router-dom';
 
 interface PostProps {
   post: PostType;
@@ -14,6 +17,8 @@ interface PostProps {
 export const Post = (props: PostProps) => {
   const [deleteDisabled, setDeleteDisabled] = useState<boolean>(false);
   const [showEditPost, setShowEditPost] = useState<boolean>(false);
+
+  const userId = useSelector<RootState, string>((state) => state.auth.userId);
 
   const handleDelete = async () => {
     setDeleteDisabled(true);
@@ -35,14 +40,8 @@ export const Post = (props: PostProps) => {
     setShowEditPost(false);
   };
 
-  return (
-    <div className={styles.Post}>
-      <p>{props.post.title}</p>
-      <p>{props.post.content}</p>
-      <p>{props.post.author.username}</p>
-      {props.post.imageUrl && (
-        <img src={props.post.imageUrl} className={styles.image} alt='Post' />
-      )}
+  const updateActions = (
+    <>
       <button onClick={handleEdit}>Edit</button>
       <button onClick={handleDelete} disabled={deleteDisabled}>
         Delete
@@ -50,6 +49,20 @@ export const Post = (props: PostProps) => {
       <Modal show={showEditPost} handleSetShow={handleSetShow}>
         <EditPostForm refresh={handleRefreshPosts} post={props.post} />
       </Modal>
+    </>
+  );
+
+  return (
+    <div className={styles.Post}>
+      <p>{props.post.title}</p>
+      <p>{props.post.content}</p>
+      {props.post.imageUrl && (
+        <img src={props.post.imageUrl} className={styles.image} alt='Post' />
+      )}
+      {props.post.author.id === userId && updateActions}
+      <Link to={`/profile/${props.post.author.username}`}>
+        @{props.post.author.username}
+      </Link>
     </div>
   );
 };

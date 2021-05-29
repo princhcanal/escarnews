@@ -10,6 +10,7 @@ export declare class PostsController {
     getAllPosts(): Promise<import("./post.entity").Post[]>;
     getPostById({ id }: FindOneParams): Promise<import("./post.entity").Post>;
     getPostsByUserId(userId: string): Promise<import("./post.entity").Post[]>;
+    getPostsByUsername(username: string): Promise<import("./post.entity").Post[]>;
     createPost(post: CreatePostDTO, req: RequestWithUser, image: Express.Multer.File): Promise<import("./post.entity").Post>;
     updatePost(id: string, post: UpdatePostDTO): Promise<import("./post.entity").Post>;
     deletePost(id: string): Promise<void>;

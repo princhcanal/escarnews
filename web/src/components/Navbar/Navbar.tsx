@@ -1,6 +1,6 @@
 import styles from './Navbar.module.css';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,6 +15,7 @@ import {
 
 import { axiosInstance as axios } from '../../axios';
 import * as AuthActions from '../../store/auth/actions';
+import { RootState } from '../../store';
 
 interface NavbarProps {
   authorized: boolean;
@@ -23,6 +24,10 @@ interface NavbarProps {
 export const Navbar = (props: NavbarProps) => {
   const dispatch = useDispatch();
   const iconSize = '2x';
+
+  const username = useSelector<RootState, string>(
+    (state) => state.auth.username
+  );
 
   const [logoutDisabled, setLogoutDisabled] = useState<boolean>(false);
 
@@ -46,7 +51,7 @@ export const Navbar = (props: NavbarProps) => {
         <p className={styles.linkText}>Home</p>
       </Link>
 
-      <Link to='/profile' className={styles.link}>
+      <Link to={`/profile/${username}`} className={styles.link}>
         <div className={styles.linkIcon}>
           <FontAwesomeIcon
             icon={faUser}

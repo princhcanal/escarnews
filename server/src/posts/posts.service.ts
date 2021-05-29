@@ -29,6 +29,14 @@ export class PostsService {
     });
   }
 
+  public async getPostsByUsername(username: string) {
+    return await this.postsRepository
+      .createQueryBuilder('posts')
+      .innerJoinAndSelect('posts.author', 'author')
+      .where('author.username = :username', { username: username })
+      .getMany();
+  }
+
   public async getPostById(id: number) {
     const post = await this.postsRepository.findOne(id, {
       relations: ['author'],

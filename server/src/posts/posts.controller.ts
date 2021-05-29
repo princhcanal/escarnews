@@ -33,10 +33,16 @@ export class PostsController {
     return await this.postsService.getPostById(Number(id));
   }
 
-  @Get('/user/:id')
+  @Get('/userId/:id')
   @UseGuards(JwtAuthenticationGuard)
   public async getPostsByUserId(@Param('id') userId: string) {
     return await this.postsService.getPostsByUserId(Number(userId));
+  }
+
+  @Get('/username/:username')
+  @UseGuards(JwtAuthenticationGuard)
+  public async getPostsByUsername(@Param('username') username: string) {
+    return await this.postsService.getPostsByUsername(username);
   }
 
   @Post()
