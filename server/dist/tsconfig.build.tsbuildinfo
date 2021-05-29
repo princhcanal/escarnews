@@ -2896,7 +2896,7 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
-      "../../node_modules/cloudinary/types/index.d.ts": {
+      "../node_modules/cloudinary/types/index.d.ts": {
         "version": "d31113596887e63fd51cd5ba6cf331538ea95da3662161584e27fd0b190ee58d",
         "signature": "d31113596887e63fd51cd5ba6cf331538ea95da3662161584e27fd0b190ee58d",
         "affectsGlobalScope": false
@@ -5256,6 +5256,11 @@
         "signature": "96d14f21b7652903852eef49379d04dbda28c16ed36468f8c9fa08f7c14c9538",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/multer/index.d.ts": {
+        "version": "45db8351a5c289dffc40d01ce829f21f25ea7a1831eaafd74f915aa42d5d8353",
+        "signature": "45db8351a5c289dffc40d01ce829f21f25ea7a1831eaafd74f915aa42d5d8353",
+        "affectsGlobalScope": true
+      },
       "../node_modules/@types/normalize-package-data/index.d.ts": {
         "version": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
         "signature": "c9ad058b2cc9ce6dc2ed92960d6d009e8c04bef46d3f5312283debca6869f613",
@@ -5305,41 +5310,6 @@
         "version": "70c1b4a47ac88b6a165b57398db4609f1ac8af446e7dbf38939c7c08524d0c1d",
         "signature": "70c1b4a47ac88b6a165b57398db4609f1ac8af446e7dbf38939c7c08524d0c1d",
         "affectsGlobalScope": true
-      },
-      "../../node_modules/@types/body-parser/index.d.ts": {
-        "version": "ebddbd167c2fabd0151f50e5df94ca6d845149c47521280d8867afe3429dd078",
-        "signature": "ebddbd167c2fabd0151f50e5df94ca6d845149c47521280d8867afe3429dd078",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/serve-static/index.d.ts": {
-        "version": "3b02517f9be71f255eadab9892406055d069167891f1e1ea16c96c4ff1ddda01",
-        "signature": "3b02517f9be71f255eadab9892406055d069167891f1e1ea16c96c4ff1ddda01",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/range-parser/index.d.ts": {
-        "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
-        "signature": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/qs/index.d.ts": {
-        "version": "98437d5a640b67c41534f0de2dcb64c75433dcdff54ff8f8432e613663619a2e",
-        "signature": "98437d5a640b67c41534f0de2dcb64c75433dcdff54ff8f8432e613663619a2e",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/express-serve-static-core/index.d.ts": {
-        "version": "4881fd217f43f5bb1aedb124875448db8af1d5da1a25cd805946238d2f6038f7",
-        "signature": "4881fd217f43f5bb1aedb124875448db8af1d5da1a25cd805946238d2f6038f7",
-        "affectsGlobalScope": true
-      },
-      "../../node_modules/@types/express/index.d.ts": {
-        "version": "3b05c396564e51753e921e1cc4aae1cf7cd9be53c891cf2e81fa29f11c0bd373",
-        "signature": "3b05c396564e51753e921e1cc4aae1cf7cd9be53c891cf2e81fa29f11c0bd373",
-        "affectsGlobalScope": false
-      },
-      "../../node_modules/@types/multer/index.d.ts": {
-        "version": "45db8351a5c289dffc40d01ce829f21f25ea7a1831eaafd74f915aa42d5d8353",
-        "signature": "45db8351a5c289dffc40d01ce829f21f25ea7a1831eaafd74f915aa42d5d8353",
-        "affectsGlobalScope": true
       }
     },
     "options": {
@@ -5357,37 +5327,6 @@
       "configFilePath": "../tsconfig.build.json"
     },
     "referencedMap": {
-      "../../node_modules/@types/body-parser/index.d.ts": [
-        "../node_modules/@types/connect/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
-      "../../node_modules/@types/express-serve-static-core/index.d.ts": [
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/index.d.ts",
-        "../node_modules/@types/qs/index.d.ts",
-        "../node_modules/@types/range-parser/index.d.ts"
-      ],
-      "../../node_modules/@types/express/index.d.ts": [
-        "../../node_modules/@types/express-serve-static-core/index.d.ts",
-        "../node_modules/@types/body-parser/index.d.ts",
-        "../node_modules/@types/express-serve-static-core/index.d.ts",
-        "../node_modules/@types/qs/index.d.ts",
-        "../node_modules/@types/serve-static/index.d.ts"
-      ],
-      "../../node_modules/@types/multer/index.d.ts": [
-        "../../node_modules/@types/express/index.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
-      "../../node_modules/@types/serve-static/index.d.ts": [
-        "../node_modules/@types/mime/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
-      "../../node_modules/cloudinary/types/index.d.ts": [
-        "../node_modules/@types/node/stream.d.ts"
-      ],
       "../node_modules/@babel/parser/typings/babel-parser.d.ts": [
         "../node_modules/@babel/types/lib/index.d.ts"
       ],
@@ -6325,6 +6264,10 @@
       "../node_modules/@types/jsonwebtoken/index.d.ts": [
         "../node_modules/@types/node/index.d.ts"
       ],
+      "../node_modules/@types/multer/index.d.ts": [
+        "../node_modules/@types/express/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
       "../node_modules/@types/node/base.d.ts": [
         "../node_modules/@types/node/assert.d.ts",
         "../node_modules/@types/node/ts3.6/base.d.ts"
@@ -7094,6 +7037,9 @@
       ],
       "../node_modules/class-validator/types/validation/validatorconstraintinterface.d.ts": [
         "../node_modules/class-validator/types/validation/validationarguments.d.ts"
+      ],
+      "../node_modules/cloudinary/types/index.d.ts": [
+        "../node_modules/@types/node/stream.d.ts"
       ],
       "../node_modules/jest-diff/build/difflines.d.ts": [
         "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
@@ -9234,10 +9180,10 @@
         "../node_modules/@nestjs/typeorm/index.d.ts"
       ],
       "../src/main.ts": [
-        "../../node_modules/cloudinary/types/index.d.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/core/index.d.ts",
         "../node_modules/@types/cookie-parser/index.d.ts",
+        "../node_modules/cloudinary/types/index.d.ts",
         "../src/app.module.ts"
       ],
       "../src/posts/dto/updatepost.dto.ts": [
@@ -9273,9 +9219,9 @@
         "../src/users/users.module.ts"
       ],
       "../src/posts/posts.service.ts": [
-        "../../node_modules/cloudinary/types/index.d.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/cloudinary/types/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/posts/dto/createpost.dto.ts",
         "../src/posts/dto/updatepost.dto.ts",
@@ -9317,37 +9263,6 @@
       ]
     },
     "exportedModulesMap": {
-      "../../node_modules/@types/body-parser/index.d.ts": [
-        "../node_modules/@types/connect/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
-      "../../node_modules/@types/express-serve-static-core/index.d.ts": [
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/index.d.ts",
-        "../node_modules/@types/qs/index.d.ts",
-        "../node_modules/@types/range-parser/index.d.ts"
-      ],
-      "../../node_modules/@types/express/index.d.ts": [
-        "../../node_modules/@types/express-serve-static-core/index.d.ts",
-        "../node_modules/@types/body-parser/index.d.ts",
-        "../node_modules/@types/express-serve-static-core/index.d.ts",
-        "../node_modules/@types/qs/index.d.ts",
-        "../node_modules/@types/serve-static/index.d.ts"
-      ],
-      "../../node_modules/@types/multer/index.d.ts": [
-        "../../node_modules/@types/express/index.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
-      "../../node_modules/@types/serve-static/index.d.ts": [
-        "../node_modules/@types/mime/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
-      "../../node_modules/cloudinary/types/index.d.ts": [
-        "../node_modules/@types/node/stream.d.ts"
-      ],
       "../node_modules/@babel/parser/typings/babel-parser.d.ts": [
         "../node_modules/@babel/types/lib/index.d.ts"
       ],
@@ -10285,6 +10200,10 @@
       "../node_modules/@types/jsonwebtoken/index.d.ts": [
         "../node_modules/@types/node/index.d.ts"
       ],
+      "../node_modules/@types/multer/index.d.ts": [
+        "../node_modules/@types/express/index.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
       "../node_modules/@types/node/base.d.ts": [
         "../node_modules/@types/node/assert.d.ts",
         "../node_modules/@types/node/ts3.6/base.d.ts"
@@ -11054,6 +10973,9 @@
       ],
       "../node_modules/class-validator/types/validation/validatorconstraintinterface.d.ts": [
         "../node_modules/class-validator/types/validation/validationarguments.d.ts"
+      ],
+      "../node_modules/cloudinary/types/index.d.ts": [
+        "../node_modules/@types/node/stream.d.ts"
       ],
       "../node_modules/jest-diff/build/difflines.d.ts": [
         "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
@@ -13176,14 +13098,6 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "../../node_modules/@types/body-parser/index.d.ts",
-      "../../node_modules/@types/express-serve-static-core/index.d.ts",
-      "../../node_modules/@types/express/index.d.ts",
-      "../../node_modules/@types/multer/index.d.ts",
-      "../../node_modules/@types/qs/index.d.ts",
-      "../../node_modules/@types/range-parser/index.d.ts",
-      "../../node_modules/@types/serve-static/index.d.ts",
-      "../../node_modules/cloudinary/types/index.d.ts",
       "../node_modules/@babel/parser/typings/babel-parser.d.ts",
       "../node_modules/@babel/types/lib/index.d.ts",
       "../node_modules/@nestjs/common/cache/cache.constants.d.ts",
@@ -13449,6 +13363,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/jsonwebtoken/index.d.ts",
       "../node_modules/@types/mime/index.d.ts",
+      "../node_modules/@types/multer/index.d.ts",
       "../node_modules/@types/node/assert.d.ts",
       "../node_modules/@types/node/async_hooks.d.ts",
       "../node_modules/@types/node/base.d.ts",
@@ -13662,6 +13577,7 @@
       "../node_modules/class-validator/types/validation/validator.d.ts",
       "../node_modules/class-validator/types/validation/validatorconstraintinterface.d.ts",
       "../node_modules/class-validator/types/validation/validatoroptions.d.ts",
+      "../node_modules/cloudinary/types/index.d.ts",
       "../node_modules/jest-diff/build/cleanupsemantic.d.ts",
       "../node_modules/jest-diff/build/difflines.d.ts",
       "../node_modules/jest-diff/build/index.d.ts",
