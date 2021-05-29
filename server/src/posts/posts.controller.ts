@@ -7,7 +7,9 @@ import {
   Patch,
   Post,
   Req,
+  UploadedFile,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { CreatePostDTO } from './dto/createPost.dto';
@@ -15,6 +17,7 @@ import { UpdatePostDTO } from './dto/updatePost.dto';
 import { JwtAuthenticationGuard } from 'src/authentication/jwtAuthentication.guard';
 import { FindOneParams } from 'src/utils/findOneParams';
 import { RequestWithUser } from 'src/authentication/requestWithUser.interface';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('api/v1/posts')
 export class PostsController {
@@ -38,11 +41,13 @@ export class PostsController {
 
   @Post()
   @UseGuards(JwtAuthenticationGuard)
+  @UseInterceptors(FileInterceptor('image', { dest: 'images' }))
   public async createPost(
     @Body() post: CreatePostDTO,
     @Req() req: RequestWithUser,
+    @UploadedFile() image: Express.Multer.File,
   ) {
-    return await this.postsService.createPost(post, req.user);
+    return await this.postsService.createPost(post, req.user, image);
   }
 
   @Patch(':id')

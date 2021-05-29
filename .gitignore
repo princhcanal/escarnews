@@ -5,3 +5,4 @@ build/
 .ash_history
 .vscode
 *.env
+images/

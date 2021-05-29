@@ -20,6 +20,12 @@ export class Post {
   @Column()
   public content: string;
 
+  @Column({ nullable: true })
+  public imageUrl: string;
+
+  @Column({ nullable: true })
+  public cloudinaryPublicId: string;
+
   @ManyToMany(() => Category, (category: Category) => category.posts)
   @JoinTable()
   public categories: Category[];

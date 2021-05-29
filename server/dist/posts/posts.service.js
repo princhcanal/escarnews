@@ -16,9 +16,11 @@ exports.PostsService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
+const cloudinary_1 = require("cloudinary");
 const post_entity_1 = require("./post.entity");
 const user_entity_1 = require("../users/user.entity");
 const postNotFound_exception_1 = require("./exception/postNotFound.exception");
+const deleteFile_1 = require("../utils/deleteFile");
 let PostsService = class PostsService {
     constructor(postsRepository) {
         this.postsRepository = postsRepository;
@@ -44,8 +46,21 @@ let PostsService = class PostsService {
         }
         throw new postNotFound_exception_1.PostNotFoundException(id);
     }
-    async createPost(post, author) {
-        const newPost = this.postsRepository.create({ ...post, author });
+    async createPost(post, author, file) {
+        let imageUrl;
+        let cloudinaryPublicId;
+        if (file) {
+            const { secure_url, public_id } = await cloudinary_1.v2.uploader.upload(file.path);
+            imageUrl = secure_url;
+            cloudinaryPublicId = public_id;
+            deleteFile_1.deleteFile(file.path);
+        }
+        const newPost = this.postsRepository.create({
+            ...post,
+            author,
+            imageUrl,
+            cloudinaryPublicId,
+        });
         await this.postsRepository.save(newPost);
         return newPost;
     }
@@ -60,6 +75,10 @@ let PostsService = class PostsService {
         throw new postNotFound_exception_1.PostNotFoundException(id);
     }
     async deletePost(id) {
+        const post = await this.postsRepository.findOne(id);
+        if (post.cloudinaryPublicId) {
+            cloudinary_1.v2.uploader.destroy(post.cloudinaryPublicId);
+        }
         const deleteResponse = await this.postsRepository.delete(id);
         if (!deleteResponse.affected) {
             throw new postNotFound_exception_1.PostNotFoundException(id);

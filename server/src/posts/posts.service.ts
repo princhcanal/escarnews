@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { v2 as cloudinary } from 'cloudinary';
 import { Post } from './post.entity';
 import { CreatePostDTO } from './dto/createPost.dto';
 import { UpdatePostDTO } from './dto/updatePost.dto';
 import { User } from 'src/users/user.entity';
 import { PostNotFoundException } from './exception/postNotFound.exception';
+import { deleteFile } from 'src/utils/deleteFile';
 
 @Injectable()
 export class PostsService {
@@ -38,8 +40,29 @@ export class PostsService {
     throw new PostNotFoundException(id);
   }
 
-  public async createPost(post: CreatePostDTO, author: User) {
-    const newPost = this.postsRepository.create({ ...post, author });
+  public async createPost(
+    post: CreatePostDTO,
+    author: User,
+    file: Express.Multer.File,
+  ) {
+    let imageUrl: string;
+    let cloudinaryPublicId: string;
+
+    if (file) {
+      const { secure_url, public_id } = await cloudinary.uploader.upload(
+        file.path,
+      );
+      imageUrl = secure_url;
+      cloudinaryPublicId = public_id;
+      deleteFile(file.path);
+    }
+
+    const newPost = this.postsRepository.create({
+      ...post,
+      author,
+      imageUrl,
+      cloudinaryPublicId,
+    });
     await this.postsRepository.save(newPost);
     return newPost;
   }
@@ -57,6 +80,11 @@ export class PostsService {
   }
 
   public async deletePost(id: number) {
+    const post = await this.postsRepository.findOne(id);
+    if (post.cloudinaryPublicId) {
+      cloudinary.uploader.destroy(post.cloudinaryPublicId);
+    }
+
     const deleteResponse = await this.postsRepository.delete(id);
     if (!deleteResponse.affected) {
       throw new PostNotFoundException(id);

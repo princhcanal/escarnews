@@ -1,2 +1,19 @@
 .CreatePostForm {
 }
+
+.imageDiv {
+  max-height: 25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}

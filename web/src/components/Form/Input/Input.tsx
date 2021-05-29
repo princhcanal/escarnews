@@ -18,7 +18,9 @@ export const Input = ({ label, onChange, ...props }: InputProps) => {
 
   return (
     <div className={styles.Input}>
-      <label className={styles.label}>{label}</label>
+      <label className={styles.label} htmlFor={props.name}>
+        {label}
+      </label>
       <input {...props} {...field} className={styles.input} />
       <p className={styles.error}>
         {meta.touched && meta.error ? meta.error : ''}

@@ -1,3 +1,4 @@
+/// <reference types="multer" />
 import { Repository } from 'typeorm';
 import { Post } from './post.entity';
 import { CreatePostDTO } from './dto/createPost.dto';
@@ -9,7 +10,7 @@ export declare class PostsService {
     getAllPosts(): Promise<Post[]>;
     getPostsByUserId(userId: number): Promise<Post[]>;
     getPostById(id: number): Promise<Post>;
-    createPost(post: CreatePostDTO, author: User): Promise<Post>;
+    createPost(post: CreatePostDTO, author: User, file: Express.Multer.File): Promise<Post>;
     updatePost(id: number, post: UpdatePostDTO): Promise<Post>;
     deletePost(id: number): Promise<void>;
 }

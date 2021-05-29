@@ -20,6 +20,7 @@ const updatePost_dto_1 = require("./dto/updatePost.dto");
 const jwtAuthentication_guard_1 = require("../authentication/jwtAuthentication.guard");
 const findOneParams_1 = require("../utils/findOneParams");
 const requestWithUser_interface_1 = require("../authentication/requestWithUser.interface");
+const platform_express_1 = require("@nestjs/platform-express");
 let PostsController = class PostsController {
     constructor(postsService) {
         this.postsService = postsService;
@@ -33,8 +34,8 @@ let PostsController = class PostsController {
     async getPostsByUserId(userId) {
         return await this.postsService.getPostsByUserId(Number(userId));
     }
-    async createPost(post, req) {
-        return await this.postsService.createPost(post, req.user);
+    async createPost(post, req, image) {
+        return await this.postsService.createPost(post, req.user, image);
     }
     async updatePost(id, post) {
         return await this.postsService.updatePost(Number(id), post);
@@ -67,10 +68,12 @@ __decorate([
 __decorate([
     common_1.Post(),
     common_1.UseGuards(jwtAuthentication_guard_1.JwtAuthenticationGuard),
+    common_1.UseInterceptors(platform_express_1.FileInterceptor('image', { dest: 'images' })),
     __param(0, common_1.Body()),
     __param(1, common_1.Req()),
+    __param(2, common_1.UploadedFile()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [createPost_dto_1.CreatePostDTO, Object]),
+    __metadata("design:paramtypes", [createPost_dto_1.CreatePostDTO, Object, Object]),
     __metadata("design:returntype", Promise)
 ], PostsController.prototype, "createPost", null);
 __decorate([

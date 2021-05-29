@@ -7,14 +7,6 @@ import { EditPostForm } from './EditPostForm/EditPostForm';
 import { Post as PostType } from '../../types/post';
 
 interface PostProps {
-  // id: string;
-  // title: string;
-  // content: string;
-  // author: {
-  //   id: string;
-  //   email: string;
-  //   username: string;
-  // };
   post: PostType;
   refresh: () => void;
 }
@@ -25,9 +17,7 @@ export const Post = (props: PostProps) => {
 
   const handleDelete = async () => {
     setDeleteDisabled(true);
-    console.log('deleting...');
     await axios.delete(`/posts/${props.post.id}`);
-    console.log('deleted');
     setDeleteDisabled(false);
     props.refresh();
   };
@@ -50,10 +40,13 @@ export const Post = (props: PostProps) => {
       <p>{props.post.title}</p>
       <p>{props.post.content}</p>
       <p>{props.post.author.username}</p>
+      {props.post.imageUrl && (
+        <img src={props.post.imageUrl} className={styles.image} alt='Post' />
+      )}
+      <button onClick={handleEdit}>Edit</button>
       <button onClick={handleDelete} disabled={deleteDisabled}>
         Delete
       </button>
-      <button onClick={handleEdit}>Edit</button>
       <Modal show={showEditPost} handleSetShow={handleSetShow}>
         <EditPostForm refresh={handleRefreshPosts} post={props.post} />
       </Modal>

@@ -28,6 +28,14 @@ __decorate([
     __metadata("design:type", String)
 ], Post.prototype, "content", void 0);
 __decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", String)
+], Post.prototype, "imageUrl", void 0);
+__decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", String)
+], Post.prototype, "cloudinaryPublicId", void 0);
+__decorate([
     typeorm_1.ManyToMany(() => category_entity_1.Category, (category) => category.posts),
     typeorm_1.JoinTable(),
     __metadata("design:type", Array)
