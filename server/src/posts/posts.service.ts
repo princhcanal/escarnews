@@ -16,7 +16,12 @@ export class PostsService {
   ) {}
 
   public async getAllPosts() {
-    return await this.postsRepository.find({ relations: ['author'] });
+    return await this.postsRepository.find({
+      relations: ['author'],
+      order: {
+        createdAt: 'DESC',
+      },
+    });
   }
 
   public async getPostsByUserId(userId: number) {

@@ -26,7 +26,12 @@ let PostsService = class PostsService {
         this.postsRepository = postsRepository;
     }
     async getAllPosts() {
-        return await this.postsRepository.find({ relations: ['author'] });
+        return await this.postsRepository.find({
+            relations: ['author'],
+            order: {
+                createdAt: 'DESC',
+            },
+        });
     }
     async getPostsByUserId(userId) {
         return await this.postsRepository.find({

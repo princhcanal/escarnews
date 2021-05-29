@@ -20,6 +20,14 @@ __decorate([
     __metadata("design:type", Number)
 ], Post.prototype, "id", void 0);
 __decorate([
+    typeorm_1.CreateDateColumn(),
+    __metadata("design:type", Date)
+], Post.prototype, "createdAt", void 0);
+__decorate([
+    typeorm_1.UpdateDateColumn(),
+    __metadata("design:type", Date)
+], Post.prototype, "updatedAt", void 0);
+__decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], Post.prototype, "title", void 0);
