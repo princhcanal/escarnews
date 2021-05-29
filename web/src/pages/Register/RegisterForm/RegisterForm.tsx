@@ -8,10 +8,13 @@ import { axiosInstance as axios } from '../../../axios';
 import { Input } from '../../../components/Form/Input/Input';
 
 import { Formik, Form } from 'formik';
+import { useDispatch } from 'react-redux';
+import * as AuthActions from '../../../store/auth/actions';
 
 export const RegisterForm = () => {
   const [submitDisabled, setSubmitDisabled] = useState<boolean>(false);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const initialValues = {
     email: '',
@@ -34,6 +37,7 @@ export const RegisterForm = () => {
       setSubmitDisabled(true);
       await axios.post('/auth/register', values);
       setSubmitDisabled(false);
+      dispatch(AuthActions.login());
       history.push('/');
     } catch (e) {
       history.replace('/register');

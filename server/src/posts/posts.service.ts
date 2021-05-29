@@ -39,6 +39,7 @@ export class PostsService {
       .createQueryBuilder('posts')
       .innerJoinAndSelect('posts.author', 'author')
       .where('author.username = :username', { username: username })
+      .orderBy('posts.createdAt', 'DESC')
       .getMany();
   }
 

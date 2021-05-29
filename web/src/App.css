@@ -5,6 +5,7 @@
   --white: #fff;
   --gray: gray;
   --orange: #ff6300;
+  --border-radius: 1rem;
 }
 
 :disabled {

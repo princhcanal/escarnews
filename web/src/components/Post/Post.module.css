@@ -1,7 +1,68 @@
 .Post {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--maroon);
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-radius: var(--border-radius);
 }
 
-.image {
+.main {
+  display: flex;
+}
+
+.post {
+  flex: 6;
+}
+
+.postTitle {
+  color: var(--gold);
+}
+
+.postContent {
+  color: var(--white);
+}
+
+.postImage {
   width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.actions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.icon {
+  background-color: transparent;
+  border: none;
+  color: var(--gold);
+  margin: 1rem 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profileLink {
+  text-decoration: none;
+  color: var(--gold) !important;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-right: 1.5rem;
+}
+
+.profileLinkText {
+  margin-right: 1rem;
+}
+
+.profilePicture {
+  height: 2rem;
+  border-radius: var(--border-radius);
 }

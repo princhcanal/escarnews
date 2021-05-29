@@ -5,6 +5,7 @@ import { axiosInstance as axios } from '../../axios';
 import { Post as PostType } from '../../types/post';
 import { Post } from '../../components/Post/Post';
 import { useParams } from 'react-router';
+import { PostSkeleton } from '../../components/Skeleton/PostSkeleton';
 
 export const Profile = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -38,11 +39,13 @@ export const Profile = () => {
     <div className={styles.Profile}>
       <div className={styles.container}>
         <h1 className={styles.username}>@{username}</h1>
-        {posts.length > 0
-          ? userPosts
-          : fetchedPosts
-          ? 'No posts found'
-          : 'Loading...'}
+        {posts.length > 0 ? (
+          userPosts
+        ) : fetchedPosts ? (
+          'No posts found'
+        ) : (
+          <PostSkeleton />
+        )}
       </div>
     </div>
   );

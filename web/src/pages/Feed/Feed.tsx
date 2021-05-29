@@ -6,6 +6,7 @@ import { Post } from '../../components/Post/Post';
 import { Modal } from '../../components/Modal/Modal';
 import { CreatePostForm } from './CreatePostForm/CreatePostForm';
 import { Post as PostType } from '../../types/post';
+import { PostSkeleton } from '../../components/Skeleton/PostSkeleton';
 
 export const Feed = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -47,11 +48,13 @@ export const Feed = () => {
   return (
     <div className={styles.Feed}>
       <div className={styles.container}>
-        {posts.length > 0
-          ? feedPosts
-          : fetchedPosts
-          ? 'No posts found'
-          : 'Loading...'}
+        {posts.length > 0 ? (
+          feedPosts
+        ) : fetchedPosts ? (
+          'No posts found'
+        ) : (
+          <PostSkeleton />
+        )}
       </div>
       <button className={styles.createPost} onClick={handleCreatePost}>
         Create Post
