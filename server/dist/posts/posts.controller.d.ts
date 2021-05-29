@@ -10,6 +10,6 @@ export declare class PostsController {
     getPostById({ id }: FindOneParams): Promise<import("./post.entity").Post>;
     getPostsByUserId(userId: string): Promise<import("./post.entity").Post[]>;
     createPost(post: CreatePostDTO, req: RequestWithUser): Promise<import("./post.entity").Post>;
-    replacePost(id: string, post: UpdatePostDTO): Promise<import("./post.entity").Post>;
+    updatePost(id: string, post: UpdatePostDTO): Promise<import("./post.entity").Post>;
     deletePost(id: string): Promise<void>;
 }

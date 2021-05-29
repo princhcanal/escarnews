@@ -16,6 +16,7 @@ export const Profile = () => {
 
   const [posts, setPosts] = useState<PostType[]>([]);
   const [fetchedPosts, setFetchedPosts] = useState<boolean>(false);
+  const [refreshPosts, setRefreshPosts] = useState<boolean>(false);
 
   useEffect(() => {
     const getUserPosts = async () => {
@@ -24,9 +25,15 @@ export const Profile = () => {
       setFetchedPosts(true);
     };
     getUserPosts();
-  }, [userId]);
+  }, [userId, refreshPosts]);
 
-  const userPosts = posts.map((post) => <Post key={post.id} {...post} />);
+  const handleRefreshPosts = () => {
+    setRefreshPosts((prev) => !prev);
+  };
+
+  const userPosts = posts.map((post) => (
+    <Post key={post.id} post={post} refresh={handleRefreshPosts} />
+  ));
 
   return (
     <div className={styles.Profile}>

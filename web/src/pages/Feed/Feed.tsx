@@ -11,6 +11,7 @@ export const Feed = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [fetchedPosts, setFetchedPosts] = useState<boolean>(false);
   const [showCreatePost, setShowCreatePost] = useState<boolean>(false);
+  const [refreshPosts, setRefreshPosts] = useState<boolean>(false);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -24,11 +25,7 @@ export const Feed = () => {
       }
     };
     getPosts();
-  }, []);
-
-  const feedPosts = posts.map((post) => {
-    return <Post key={post.id} {...post} />;
-  });
+  }, [refreshPosts]);
 
   const handleCreatePost = () => {
     setShowCreatePost(true);
@@ -37,6 +34,15 @@ export const Feed = () => {
   const handleSetShow = (showCreatePost: boolean) => {
     setShowCreatePost(showCreatePost);
   };
+
+  const handleRefreshPosts = () => {
+    setRefreshPosts((prev) => !prev);
+    setShowCreatePost(false);
+  };
+
+  const feedPosts = posts.map((post) => {
+    return <Post key={post.id} post={post} refresh={handleRefreshPosts} />;
+  });
 
   return (
     <div className={styles.Feed}>
@@ -51,7 +57,7 @@ export const Feed = () => {
         Create Post
       </button>
       <Modal show={showCreatePost} handleSetShow={handleSetShow}>
-        <CreatePostForm />
+        <CreatePostForm refresh={handleRefreshPosts} />
       </Modal>
     </div>
   );

@@ -42,19 +42,19 @@ export class PostsController {
     @Body() post: CreatePostDTO,
     @Req() req: RequestWithUser,
   ) {
-    return this.postsService.createPost(post, req.user);
+    return await this.postsService.createPost(post, req.user);
   }
 
   @Patch(':id')
-  public async replacePost(
+  public async updatePost(
     @Param('id') id: string,
     @Body() post: UpdatePostDTO,
   ) {
-    return this.postsService.updatePost(Number(id), post);
+    return await this.postsService.updatePost(Number(id), post);
   }
 
   @Delete(':id')
   public async deletePost(@Param('id') id: string) {
-    this.postsService.deletePost(Number(id));
+    return await this.postsService.deletePost(Number(id));
   }
 }

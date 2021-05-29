@@ -34,13 +34,13 @@ let PostsController = class PostsController {
         return await this.postsService.getPostsByUserId(Number(userId));
     }
     async createPost(post, req) {
-        return this.postsService.createPost(post, req.user);
+        return await this.postsService.createPost(post, req.user);
     }
-    async replacePost(id, post) {
-        return this.postsService.updatePost(Number(id), post);
+    async updatePost(id, post) {
+        return await this.postsService.updatePost(Number(id), post);
     }
     async deletePost(id) {
-        this.postsService.deletePost(Number(id));
+        return await this.postsService.deletePost(Number(id));
     }
 };
 __decorate([
@@ -80,7 +80,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, updatePost_dto_1.UpdatePostDTO]),
     __metadata("design:returntype", Promise)
-], PostsController.prototype, "replacePost", null);
+], PostsController.prototype, "updatePost", null);
 __decorate([
     common_1.Delete(':id'),
     __param(0, common_1.Param('id')),
