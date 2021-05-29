@@ -3,6 +3,8 @@
   --light-gold: #feefd3;
   --maroon: #8a0102;
   --white: #fff;
+  --gray: gray;
+  --orange: #ff6300;
 }
 
 :disabled {

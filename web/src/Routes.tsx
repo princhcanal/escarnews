@@ -7,6 +7,7 @@ import { Profile } from './pages/Profile/Profile';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
 import { Navbar } from './components/Navbar/Navbar';
+import { Welcome } from './pages/Welcome/Welcome';
 
 export const Routes = () => {
   const isLoggedIn = useSelector<RootState, boolean>(
@@ -22,7 +23,8 @@ export const Routes = () => {
         <Switch>
           <Route path='/register' component={Register} />
           <Route path='/login' component={Login} />
-          <Redirect to='/login' />
+          <Route path='/' component={Welcome} />
+          <Redirect to='/' />
         </Switch>
       </div>
     </div>
