@@ -95,8 +95,14 @@ export const CreatePostForm = (props: CreatePostFormProps) => {
   };
 
   const handleRemoveImage = (formProps: FormikProps<FormGroup>) => {
-    if (imagePreviewRef.current && fileInputRef.current) {
-      imagePreviewRef.current.src = '';
+    if (
+      imagePreviewRef.current &&
+      imagePreviewDivRef.current &&
+      fileInputRef.current
+    ) {
+      imagePreviewDivRef.current.style.display = 'none';
+      imagePreviewRef.current.removeAttribute('src');
+      fileInputRef.current.value = '';
       formProps.setFieldValue('image', '');
     }
   };

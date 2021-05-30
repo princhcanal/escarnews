@@ -3,9 +3,10 @@
 }
 
 .imageDiv {
-  max-height: 25rem;
+  max-height: 20rem;
   overflow: hidden;
   position: relative;
+  display: none;
 }
 
 .image {
@@ -17,6 +18,7 @@
   top: 1rem;
   right: 1rem;
   cursor: pointer;
+  color: var(--maroon);
 }
 
 .fileInput {

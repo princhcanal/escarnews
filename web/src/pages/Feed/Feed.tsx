@@ -24,7 +24,6 @@ export const Feed = () => {
         const posts = (await axios.get<PostType[]>('/posts')).data;
         setPosts(posts);
       } catch (e) {
-        console.log(e);
       } finally {
         setFetchedPosts(true);
       }
