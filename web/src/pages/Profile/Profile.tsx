@@ -144,7 +144,10 @@ export const Profile = () => {
         {posts.length > 0 ? (
           userPosts
         ) : fetchedPosts ? (
-          'No posts found'
+          <div className={styles.noPosts}>
+            <img src='/empty.png' alt='' className={styles.noPostsImage} />
+            <p className={styles.noPostsText}>No posts found :(</p>
+          </div>
         ) : (
           <PostSkeleton />
         )}

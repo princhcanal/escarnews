@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 2rem;
 }
 
 .createPost {
@@ -20,4 +21,22 @@
 .container {
   width: 100%;
   max-width: 35rem;
+}
+
+.noPosts {
+  display: flex;
+  flex-direction: column;
+}
+
+.noPostsImage {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.noPostsText {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: var(--maroon);
+  font-weight: bold;
 }
