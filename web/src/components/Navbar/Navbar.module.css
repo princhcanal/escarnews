@@ -40,6 +40,13 @@
   color: var(--white);
 }
 
+@media (hover: none) {
+  .links .link:hover,
+  .logout:hover {
+    color: var(--maroon);
+  }
+}
+
 .button {
   background-color: transparent;
   border: none;

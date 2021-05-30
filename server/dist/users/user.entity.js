@@ -33,6 +33,22 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "profilePictureUrl", void 0);
+__decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "profilePictureCloudinaryPublicId", void 0);
+__decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "coverPhotoUrl", void 0);
+__decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "coverPhotoCloudinaryPublicId", void 0);
+__decorate([
     typeorm_1.OneToMany(() => post_entity_1.Post, (post) => post.author),
     __metadata("design:type", Array)
 ], User.prototype, "posts", void 0);

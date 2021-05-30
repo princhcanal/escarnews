@@ -17,6 +17,18 @@ export class User {
   @Exclude()
   public password: string;
 
+  @Column({ nullable: true })
+  public profilePictureUrl: string;
+
+  @Column({ nullable: true })
+  public profilePictureCloudinaryPublicId: string;
+
+  @Column({ nullable: true })
+  public coverPhotoUrl: string;
+
+  @Column({ nullable: true })
+  public coverPhotoCloudinaryPublicId: string;
+
   @OneToMany(() => Post, (post: Post) => post.author)
   public posts: Post[];
 }

@@ -17,6 +17,8 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./user.entity");
+const cloudinary_1 = require("cloudinary");
+const deleteFile_1 = require("../utils/deleteFile");
 let UsersService = class UsersService {
     constructor(usersRepository) {
         this.usersRepository = usersRepository;
@@ -35,10 +37,51 @@ let UsersService = class UsersService {
         }
         throw new common_1.HttpException('User with this id does not exist', common_1.HttpStatus.NOT_FOUND);
     }
+    async getByUsername(username) {
+        const user = await this.usersRepository.findOne({ username });
+        if (user) {
+            return user;
+        }
+        throw new common_1.HttpException('User with this username does not exist', common_1.HttpStatus.NOT_FOUND);
+    }
     async create(userData) {
         const newUser = this.usersRepository.create(userData);
         await this.usersRepository.save(newUser);
         return newUser;
+    }
+    async updateProfilePicture(id, file, previousProfilePictureCloudinaryPublicId) {
+        let profilePictureUrl;
+        let profilePictureCloudinaryPublicId;
+        if (file) {
+            const { secure_url, public_id } = await cloudinary_1.v2.uploader.upload(file.path);
+            if (previousProfilePictureCloudinaryPublicId) {
+                cloudinary_1.v2.uploader.destroy(previousProfilePictureCloudinaryPublicId);
+            }
+            profilePictureUrl = secure_url;
+            profilePictureCloudinaryPublicId = public_id;
+            deleteFile_1.deleteFile(file.path);
+        }
+        await this.usersRepository.update(id, {
+            profilePictureUrl,
+            profilePictureCloudinaryPublicId,
+        });
+    }
+    async updateCoverPhoto(id, file, previousCoverPhotoCloudinaryPublicId) {
+        let coverPhotoUrl;
+        let coverPhotoCloudinaryPublicId;
+        if (file) {
+            const { secure_url, public_id } = await cloudinary_1.v2.uploader.upload(file.path);
+            if (previousCoverPhotoCloudinaryPublicId) {
+                cloudinary_1.v2.uploader.destroy(previousCoverPhotoCloudinaryPublicId);
+            }
+            coverPhotoUrl = secure_url;
+            coverPhotoCloudinaryPublicId = public_id;
+            deleteFile_1.deleteFile(file.path);
+        }
+        await this.usersRepository.update(id, {
+            coverPhotoUrl,
+            coverPhotoCloudinaryPublicId,
+        });
     }
 };
 UsersService = __decorate([

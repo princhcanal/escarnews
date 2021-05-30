@@ -4,5 +4,9 @@ export declare class User {
     email: string;
     username: string;
     password: string;
+    profilePictureUrl: string;
+    profilePictureCloudinaryPublicId: string;
+    coverPhotoUrl: string;
+    coverPhotoCloudinaryPublicId: string;
     posts: Post[];
 }
