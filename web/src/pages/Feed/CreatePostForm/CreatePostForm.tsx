@@ -56,8 +56,16 @@ export const CreatePostForm = (props: CreatePostFormProps) => {
       props.refresh();
       formikHelpers.resetForm();
 
+      if (imagePreviewDivRef.current) {
+        imagePreviewDivRef.current.style.display = 'none';
+      }
+
       if (imagePreviewRef.current) {
-        imagePreviewRef.current.src = '';
+        imagePreviewRef.current.removeAttribute('src');
+      }
+
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
       }
     } catch (e) {}
   };
