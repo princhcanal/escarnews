@@ -13,6 +13,7 @@ interface FileInputProps {
   accept: string;
   hidden?: boolean;
   ref?: React.RefObject<HTMLInputElement>;
+  className?: string;
 }
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
@@ -21,10 +22,11 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const iconSize = '2x';
+    const classes = [styles.FileInput, props.className].join(' ');
 
     return (
-      <div className={styles.FileInput}>
-        <label htmlFor={props.name}>
+      <div className={classes}>
+        <label htmlFor={props.name} className={styles.label}>
           {label}
           <FontAwesomeIcon icon={faImage} size={iconSize} />
         </label>

@@ -9,7 +9,7 @@ export const Welcome = () => {
   return (
     <div className={styles.Welcome}>
       <div className={styles.header}>
-        <img src='logo.png' alt='' className={styles.logo} />
+        <img src='escarnews_logo.png' alt='' className={styles.logo} />
         <h1 className={styles.mainHeading}>Escarnews</h1>
       </div>
       <div className={styles.contentWrapper}>

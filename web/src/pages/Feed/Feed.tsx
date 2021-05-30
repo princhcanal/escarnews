@@ -7,12 +7,16 @@ import { Modal } from '../../components/Modal/Modal';
 import { CreatePostForm } from './CreatePostForm/CreatePostForm';
 import { Post as PostType } from '../../types/post';
 import { PostSkeleton } from '../../components/Skeleton/PostSkeleton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export const Feed = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [fetchedPosts, setFetchedPosts] = useState<boolean>(false);
   const [showCreatePost, setShowCreatePost] = useState<boolean>(false);
   const [refreshPosts, setRefreshPosts] = useState<boolean>(false);
+
+  const iconSize = '3x';
 
   useEffect(() => {
     const getPosts = async () => {
@@ -57,7 +61,7 @@ export const Feed = () => {
         )}
       </div>
       <button className={styles.createPost} onClick={handleCreatePost}>
-        Create Post
+        <FontAwesomeIcon icon={faPlus} size={iconSize} />
       </button>
       <Modal show={showCreatePost} handleSetShow={handleSetShow}>
         <CreatePostForm refresh={handleRefreshPosts} />

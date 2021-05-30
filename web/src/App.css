@@ -8,6 +8,11 @@
   --border-radius: 1rem;
 }
 
+::selection {
+  color: var(--maroon);
+  background-color: var(--gold);
+}
+
 :disabled {
   opacity: 0.5;
 }

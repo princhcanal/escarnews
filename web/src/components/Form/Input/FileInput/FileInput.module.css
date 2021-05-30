@@ -1,2 +1,6 @@
 .FileInput {
 }
+
+.label {
+  cursor: pointer;
+}

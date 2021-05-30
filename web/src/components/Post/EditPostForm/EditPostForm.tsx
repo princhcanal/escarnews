@@ -53,7 +53,11 @@ export const EditPostForm = (props: EditPostFormProps) => {
             <Input type='text' name='title' id='title' label='Title' />
             <Input type='text' name='content' id='content' label='Content' />
             <div>
-              <button type='submit' disabled={submitDisabled}>
+              <button
+                type='submit'
+                disabled={submitDisabled}
+                className={styles.submit}
+              >
                 {submitDisabled ? 'Updating...' : 'Update Post'}
               </button>
             </div>

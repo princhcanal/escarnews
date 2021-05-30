@@ -132,9 +132,14 @@ export const CreatePostForm = (props: CreatePostFormProps) => {
                 accept='.jpg, .jpeg, .png'
                 hidden
                 ref={fileInputRef}
+                className={styles.fileInput}
               />
               <div>
-                <button type='submit' disabled={submitDisabled}>
+                <button
+                  type='submit'
+                  disabled={submitDisabled}
+                  className={styles.submit}
+                >
                   {submitDisabled ? 'Creating...' : 'Create Post'}
                 </button>
               </div>

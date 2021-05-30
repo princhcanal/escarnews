@@ -9,6 +9,12 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  background-color: var(--gold);
+  color: var(--maroon);
+  border: none;
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .container {
