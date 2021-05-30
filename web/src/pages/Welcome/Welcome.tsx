@@ -9,7 +9,7 @@ export const Welcome = () => {
   return (
     <div className={styles.Welcome}>
       <div className={styles.header}>
-        <img src='escarnews_logo.png' alt='' className={styles.logo} />
+        <img src='/escarnews_logo.png' alt='' className={styles.logo} />
         <h1 className={styles.mainHeading}>Escarnews</h1>
       </div>
       <div className={styles.contentWrapper}>
@@ -48,7 +48,7 @@ export const Welcome = () => {
                   className={styles.socialLink}
                 />
               </a>
-              <img src='logo.png' alt='' className={styles.logo} />
+              <img src='/logo.png' alt='' className={styles.logo} />
             </div>
           </div>
         </div>
